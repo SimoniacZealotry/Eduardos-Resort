@@ -1,169 +1,229 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap');
 
-* {
+*{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-html,
-body {
-  font-family: 'Roboto Slab', serif;
+body{
   scroll-behavior: smooth;
+  font-family: 'Roboto Slab', serif;
 }
 
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-.container {
-  max-width: 80%;
-  margin: auto;
-}
-
-@media only screen and (max-width: 768px) {
-  .container {
-    max-width: 94%;
-    margin: auto;
-
-  }
-
-.head_container {
+container{
   max-width: 90%;
   margin: auto;
 }
 
-/*
-.nav{
-  position: fixed;
-  top: 0;
-  right: -100%;
-  background-color: #234294ff;
-  width: 60%;
-  height: 100vh;
-  padding:  24px 0;
-  z-index: 100;
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
   transition: 0.5s;
-  border-radius: 0 0 0 50%;
 }
 
-.nav-menu{
+a:hover{
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.flex{
   display: flex;
-  flex-direction: column;
 }
 
-.nav-link{
-  margin: 2rem 0;
-}
-*/
-
-/*--------------header--------*/
-header {
-  height: 8vh;
-}
-
-.logo img {
-  width: 40vh;
-}
-
-header nav {
+.flex1{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-content: center;
+}
+
+/*------Head-------*/
+.head{
+  height: 10vh;
+  line-height: 10vh;
+}
+
+.head i{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #faf3e7;
+  text-align: center;
+  color: #cc8c18;
+  line-height: 30px;
+}
+
+.head img{
+  margin-top: 24px;
+}
+/*------Header-------*/
+header{
+  background: #cc8c18;
+  padding: 15px 0 15px 0;
+  color: white;
+}
+
+.navbar{
+  display: flex;
   align-items: center;
-  padding-top: 20px;
-  /*background-color:  #222831;*/
 }
 
-.hambuger {
+.hamburger{
   display: none;
 }
 
-.bar {
+.bar{
   display: block;
   width: 25px;
   height: 3px;
   margin: 5px auto;
-  transition: all 0.3s ease-in-out;
-  background-color: #fff;
+  transition: all 0.5s ease-in-out;
+  background: white;
 }
 
-header ul {
+.nav-menu{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-header ul li {
-  margin-left: 3rem;
+header ul{
+  padding: 0 20px 0 0;
 }
 
-header ul li a {
-  font-size: 1.4rem;
-  font-weight: 400;
+header li{
+  margin-right: 30px
+}
+
+header ul li a{
+  font-size: 15px;
   color: white;
+  text-transform: uppercase;
   transition: 0.5s;
+  font-weight: 500;
 }
 
-header ul li a:hover {
-  color: #F17F23ff;
+header ul li a:hover{
+  color: #000;
 }
 
-@media only screen and (max-width: 768px) {
-  header ul {
-    display: block;
+header .head_contact{
+  position: relative;
+}
+
+header .head_contact i{
+  position: absolute;
+  top: -40px;
+  left: -70%;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  background: white;
+  color: #cc8c18;
+  border-radius: 50%;
+  transform: rotate(-45deg);
+  border: 5px solid #ece3d2;
+  font-size: 30px;
+}
+
+header .sticky_logo{
+  display: none;
+}
+
+header.sticky .sticky_logo{
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+header.sticky{
+  z-index: 999;
+  position: fixed;
+  width: 100%;
+  height: 12vh;
+  background: #313538;
+  transition: 0.5s;
+  top: 0;
+  padding: 30px 0 0 0;
+}
+
+header .sticky ul li a{
+  color: white;
+}
+
+@media only screen and (max-width:768px){
+  /*------Head-------*/
+  .header .head_contact,
+  .logo{
+    display: none;
+  }
+
+  /*------Header-------*/
+  .header.sticky{
+    height: 13vh;
+  }
+
+  .header.sticky .nav-menu{
+    background: #313538;
+  }
+
+  .navbar{
+    height: 5vh;
+    justify-content: space-between;
+  }
+
+  .nav-menu{
     position: fixed;
     left: -100%;
-    top: 10rem;
+    top: 8rem;
     flex-direction: column;
-    background-color: #234294ff;
-    backdrop-filter: blur(1rem); /* ayaw magblur */
+    background: #cc8c18;
     width: 100%;
-    border-radius: 10px;
     text-align: center;
     transition: 0.5s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    border-radius: 0 0 0 50%;
-    z-index: 20;
-
-
+    z-index: 99;
   }
 
-  header ul.active {
-    left: 0%;
+  .header.sticky .nav-menu{
+    top: 5rem;
   }
 
-  header ul li {
-    margin: 2.5rem 0;
-  }
-
-  header ul li a {
+  .header ul li a{
     color: white;
   }
 
-  .hambuger {
+  .nav-menu.active{
+    left: 0;
+  }
+
+  header li{
+    margin: 2.5rem 0;
+  }
+
+  .hamburger{
+    margin-left: 3vh;
     display: block;
     cursor: pointer;
   }
 
-  .hambuger.active .bar:nth-child(2) {
+  .hamburger.active .bar:nth-child(2){
     opacity: 0;
   }
 
-  .hambuger.active .bar:nth-child(1) {
+  .hamburger.active .bar:nth-child(1){
     transform: translateY(8px) rotate(45deg);
   }
 
-  .hambuger.active .bar:nth-child(3) {
+  .hamburger.active .bar:nth-child(3){
     transform: translateY(-8px) rotate(-45deg);
   }
 }
 
-/*--------------header--------*/
-/*--------------home--------*/
+/*------Home-------*/
 .home .image img {
   position: absolute;
   top: 0;
@@ -177,7 +237,7 @@ header ul li a:hover {
 .home .text {
   max-width: 50%;
   color: white;
-  margin: 20% 0 0 10%;
+  margin: 86px 0 0 -10px;
 }
 
 .home h1 {
@@ -192,7 +252,6 @@ header ul li a:hover {
   font-size: 19px;
   margin: 50px 0 0 50px;
 }
-
 
 button {
   margin-left: 50px;
@@ -211,6 +270,7 @@ button{
   border: 2px solid #3EA4DBff;
   transition: all 0.3s ease;
 }
+
 button:hover{   
   color: white;
   background: #234294ff;
@@ -233,14 +293,6 @@ button:hover{
   height: 94px;
   margin: 10px;
   transition: 0.5s;
-}
-
-.home .image_item img.active {
-  border: 2px solid white;
-}
-
-.home .box .text {
-  position: relative;
 }
 
 .home .box .text::after {
@@ -457,11 +509,6 @@ input {
 
 /*--------------wrapper--------*/
 /*--------------room--------*/
-.flex1 {
-  display: flex;
-  justify-content: space-between;
-}
-
 .room .grid {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -687,10 +734,6 @@ footer li:hover {
 
 /*--------------footer--------*/
 @media only screen and (max-width:768px) {
-  .home .box .text {
-    max-width: 100%;
-  }
-
   .home .box .text::after,
   .home .image_item {
     display: none;
@@ -745,13 +788,9 @@ footer li:hover {
   }
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:768px){
   .grid {
     grid-template-columns: repeat(1, 1fr);
-  }
-
-  .home .text {
-    margin: 10% 0 0 0;
   }
 
   .home h1 {
