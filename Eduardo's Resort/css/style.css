@@ -86,7 +86,6 @@ header{
 
 .nav-menu{
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -157,12 +156,25 @@ header .sticky ul li a{
 
 @media only screen and (max-width:768px){
   /*------Head-------*/
+  .nav-menu{
+    display: flex;
+    align-items: center;
+  }
+
   .header .head_contact,
   .logo{
     display: none;
   }
 
+  .head{
+    background: white;
+  }
+
   /*------Header-------*/
+  header ul{
+    padding: 0 0 0 0;
+  }
+
   .header.sticky{
     height: 13vh;
   }
@@ -173,13 +185,15 @@ header .sticky ul li a{
 
   .navbar{
     height: 5vh;
-    justify-content: space-between;
+    padding: 2vh;
+    justify-content: flex-end;
   }
 
   .nav-menu{
     position: fixed;
-    left: -100%;
+    right: -100%;
     top: 8rem;
+    bottom: 0;
     flex-direction: column;
     background: #cc8c18;
     width: 100%;
@@ -190,6 +204,7 @@ header .sticky ul li a{
 
   .header.sticky .nav-menu{
     top: 5rem;
+    bottom: 0rem;
   }
 
   .header ul li a{
@@ -197,15 +212,18 @@ header .sticky ul li a{
   }
 
   .nav-menu.active{
-    left: 0;
+    width: 40%;
+    right: 0;
+    bottom: 0;
+    border-radius: 0 0 0 50%;
+    transition: 0.5s;
   }
 
   header li{
-    margin: 2.5rem 0;
+    margin: 1rem 0;
   }
 
   .hamburger{
-    margin-left: 3vh;
     display: block;
     cursor: pointer;
   }
@@ -230,14 +248,14 @@ header .sticky ul li a{
   left: 0;
   z-index: -1;
   width: 100%;
-  height: 110%;
+  height: 135%;
   filter: brightness(60%)
 }
 
 .home .text {
   max-width: 50%;
   color: white;
-  margin: 86px 0 0 -10px;
+  margin: 86px 0 0 40px;
 }
 
 .home h1 {
@@ -250,11 +268,42 @@ header .sticky ul li a{
   line-height: 25px;
   font-family: sans-serif;
   font-size: 19px;
-  margin: 50px 0 0 50px;
+  margin: 50px 0 0 0;
 }
 
 button {
   margin-left: 50px;
+}
+
+@media only screen and (max-width:768px) {
+  .home .image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    filter: brightness(60%)
+  }
+
+  .home .text {
+    max-width: 50%;
+    color: white;
+    margin: 60px 0 0 35px;
+  }
+
+  .home h1 {
+    font-size: 65px;
+    font-weight: 400;
+  }
+
+  .home p {
+    font-weight: 400;
+    line-height: 25px;
+    font-family: sans-serif;
+    font-size: 19px;
+    margin: 50px 0 0 50px;
+  }
 }
 
 /* Booking Reservation Button */
@@ -362,7 +411,7 @@ input {
 /*--------------book--------*/
 /*--------------about--------*/
 .top {
-  margin-top: 10%;
+  margin-top: 20%;
 }
 
 .mtop {
@@ -378,21 +427,23 @@ input {
 }
 
 .about .img {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   position: relative;
 }
 
 .about .image1 {
   width: 320px;
-  height: 540px;
+  height: 440px;
 }
 
 .about .image2 {
+  margin-top: 25px;
   width: 400px;
   height: 250px;
-  position: absolute;
-  bottom: 5px;
   z-index: 2;
-  right: 45%;
+  right: -10%;
 }
 
 .heading {
@@ -453,6 +504,82 @@ input {
   transform: scale(1.1);      /* enlarges text upon hover */
 }
 
+@media only screen and (max-width:768px) {
+  .mtop {
+    margin-top: 5%;
+  }
+  
+  .left, .right {
+    width: 100%;
+  }
+  
+  .about {
+    margin-bottom: 50px;
+  }
+  
+  .about .img {
+    position: relative;
+  }
+  
+  .about .image1 {
+    width: 320px;
+    height: 540px;
+  }
+  
+  .about .image2 {
+    width: 400px;
+    height: 250px;
+    z-index: 2;
+    right: 1%;
+    top: 15vh;
+  }
+  
+  .heading {
+    position: relative;
+    top: 4vh;
+  }
+  
+  .heading::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100px;
+    height: 4px;
+    background: #E54E25ff;
+  }
+  
+  .heading h5 {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    padding-top: 20px;
+    color: #5f5f5f;
+  }
+  
+  .heading h2 {
+    font-size: 30px;
+    font-weight: 400;
+    margin: 20px 0 40px 0;
+    color: #222222;
+  }
+  
+  .heading p {
+    font-size: 17px;
+    margin-bottom: 20px;
+    line-height: 25px;
+    color: #5f5f5f;
+    margin: 0 0 20px 50px;
+  }
+
+  .heading .btn1:hover{   
+    color: white;
+    background: #E54E25ff;
+    border-radius: 50px;
+    border: 2px solid #E54E25ff;
+    transform: scale(1.1);      /* enlarges text upon hover */
+  }
+}
 /*--------------about--------*/
 /*--------------wrapper--------*/
 .wrapper {
@@ -507,6 +634,60 @@ input {
   margin: 5px 20px 0 0;
 }
 
+@media only screen and (max-width:768px) {
+  .wrapper {
+  background-image: url("../image/w1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 480px;
+  position: relative;
+  top: 10vh;
+}
+
+  .wrapper .text {
+    background: #0275BCff;
+    padding: 50px;
+    width: 40%;
+    height: 600px;
+    position: absolute;
+    top: -13%;
+    right: 10%;
+    padding-top: 4%;
+    color: white;
+  }
+
+  .wrapper .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 30px;
+  }
+
+  .wrapper h2 {
+    font-weight: 400;
+    font-size: 30px;
+    font-weight: 400;
+    margin: 20px;
+  }
+
+  .wrapper p {
+    margin: 20px;
+    line-height: 30px;
+    font-size: 17px;
+    margin-bottom: 20px;
+    margin: 0 0 20px 50px;
+  }
+
+  .wrapper span {
+    margin: 20px;
+    font-size: 16px;
+    margin: 0 0 20px 50px;
+  }
+
+  .wrapper i {
+    margin: 5px 20px 0 0;
+  }
+}
 /*--------------wrapper--------*/
 /*--------------room--------*/
 
@@ -751,8 +932,9 @@ footer li:hover {
   }
 
   .book {
-    margin-top: 10%;
+    margin-top: 5%;
     height: auto;
+    width: 100%;
   }
 
   .book .search {
@@ -771,17 +953,13 @@ footer li:hover {
     width: 80%;
   }
 
-  .room {
-    margin-bottom: 100px;
-  }
-
   .room .grid {
     grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
   }
 
   .restaurant .right {
     padding: 0;
-    margin-top: 50px;
   }
 
   footer .payment {
@@ -809,7 +987,7 @@ footer li:hover {
   }
 
   .heading_top {
-    margin-top: 100px;
+    margin-top: 130px;
   }
 
   .heading_top button {
