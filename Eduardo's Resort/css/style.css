@@ -696,8 +696,8 @@ input {
 }
 
 .room img {
-  width: 550px;
-  height: 350px;
+  width: 30vw;
+  height: 35vh;
 }
 
 .room .box {
